@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QtMqtt/QtMqtt>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -15,8 +16,17 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+    QMqttClient* client = new QMqttClient(this);
+    QMqttSubscription* subscription;
+    int max;
+    QString topics;
+
 private slots:
-    void onConnect();
+    void onDialogConnect();
+
+    void onConnect(QString addr, int port, int max, QString topics);
+
+    void onSubscribe();
 
 private:
     Ui::MainWindow *ui;
