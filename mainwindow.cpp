@@ -44,16 +44,98 @@ void MainWindow::onConnect(QString addr, int port, int max, QString topics)
     this->max = max;
     this->topics = topics;
 
+    connect(client, SIGNAL(messageReceived(const QByteArray &, const QMqttTopicName &)), this, SLOT(onMessageReceived(const QByteArray &, const QMqttTopicName &)));
+
 
 }
 
 void MainWindow::onSubscribe()
 {
-    subscription = client->subscribe(topics, 0);
+    auto subscription = client->subscribe(topics, 0);
     if (!subscription) {
             QMessageBox::critical(this, QString("Error"), QString("Could not subscribe."));
             return;
         }
+    subscriptions.append(subscription);
+}
+
+void MainWindow::onMessageReceived(const QByteArray &message, const QMqttTopicName &topic)
+{
+    QString topic_full = topic.name();
+    QString topic_current = "";
+    QTreeWidgetItem *root = ui->tree->invisibleRootItem();
+    QTreeWidgetItem *child;
+    QTreeWidgetItem *temp;
+
+
+    QString::const_iterator i = topic_full.begin();
+
+    //preskocim prvni pismeno, pokud je to lomitko
+    if(*i == '/') {
+        i++;
+    }
+
+    for (i; i != topic_full.end(); i++) {
+        QChar c = *i;
+        child = nullptr;
+
+        if(c == '/') {
+
+            //projdu vsechny potomky a zjistim jestli nekterej uz tam neni
+            for (int j = 0; j < root->childCount(); j++) {
+                if(root->child(j)->text(0) == topic_current) {
+                    child = root->child(j);
+                    break;
+                }
+            }
+
+            //pokud nebyl potomek nalezen
+            if (child == nullptr) {
+
+                temp = new QTreeWidgetItem(root);
+                temp->setText(0, topic_current);
+                temp->setText(1, "");
+
+                root = temp;
+
+            } else {
+                root = child;
+            }
+
+            topic_current = "";
+
+        } else {
+            topic_current.append(c);
+        }
+
+    }
+
+    //jeste jeden prubeh cyklu, protoze na konci neni lomitko
+
+    //projdu vsechny potomky a zjistim jestli nekterej uz tam neni
+    for (int j = 0; j < root->childCount(); j++) {
+        if(root->child(j)->text(0) == topic_current) {
+            child = root->child(j);
+            break;
+        }
+    }
+
+    //pokud nebyl potomek nalezen
+    if (child == nullptr) {
+
+        temp = new QTreeWidgetItem(root);
+        temp->setText(0, topic_current);
+        temp->setText(1, message);
+
+    } else {
+        root = child;
+    }
+
+    topic_current = "";
+
+
+
+
 }
 
 

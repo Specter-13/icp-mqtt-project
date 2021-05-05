@@ -17,7 +17,7 @@ public:
     ~MainWindow();
 
     QMqttClient* client = new QMqttClient(this);
-    QMqttSubscription* subscription;
+    QList<QMqttSubscription*> subscriptions;
     int max;
     QString topics;
 
@@ -27,6 +27,8 @@ private slots:
     void onConnect(QString addr, int port, int max, QString topics);
 
     void onSubscribe();
+
+    void onMessageReceived(const QByteArray &message, const QMqttTopicName &topic);
 
 private:
     Ui::MainWindow *ui;
