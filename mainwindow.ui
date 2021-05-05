@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>MQTT Explorer</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -46,12 +46,24 @@
     </property>
     <addaction name="actionConnect"/>
    </widget>
+   <widget class="QMenu" name="menuSimulator">
+    <property name="title">
+     <string>Simulator</string>
+    </property>
+    <addaction name="actionSimulator"/>
+   </widget>
    <addaction name="menuServer"/>
+   <addaction name="menuSimulator"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionConnect">
    <property name="text">
-    <string>Connect...</string>
+    <string>Connect..</string>
+   </property>
+  </action>
+  <action name="actionSimulator">
+   <property name="text">
+    <string>Open..</string>
    </property>
   </action>
  </widget>

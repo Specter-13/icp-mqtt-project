@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "dialogconnect.h"
+#include "simulator.h"
 #include <QDebug>
 #include <QtMqtt/QtMqtt>
 #include <QMessageBox>
@@ -12,6 +13,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     connect(ui->actionConnect, SIGNAL(triggered()), this, SLOT(onDialogConnect()));
+    connect(ui->actionSimulator, SIGNAL(triggered()), this, SLOT(onSimulatorConnect()));
 
 
 
@@ -32,6 +34,12 @@ void MainWindow::onDialogConnect()
     DialogConnect *connectW = new DialogConnect;
     connect(connectW, SIGNAL(Connecting(QString, int, int, QString)), this, SLOT(onConnect(QString, int, int, QString)));
     connectW->show();
+}
+
+void MainWindow::onSimulatorConnect()
+{
+    Simulator *simulatorW = new Simulator(client);
+    simulatorW->show();
 }
 
 void MainWindow::onConnect(QString addr, int port, int max, QString topics)
@@ -128,10 +136,9 @@ void MainWindow::onMessageReceived(const QByteArray &message, const QMqttTopicNa
         temp->setText(1, message);
 
     } else {
-        root = child;
+        child->setText(0, topic_current);
+        child->setText(1, message);
     }
-
-    topic_current = "";
 
 
 

@@ -16,13 +16,14 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-    QMqttClient* client = new QMqttClient(this);
+    QMqttClient *client = new QMqttClient(this);
     QList<QMqttSubscription*> subscriptions;
     int max;
     QString topics;
 
 private slots:
     void onDialogConnect();
+    void onSimulatorConnect();
 
     void onConnect(QString addr, int port, int max, QString topics);
 
