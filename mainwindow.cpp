@@ -2,9 +2,15 @@
 #include "ui_mainwindow.h"
 #include "dialogconnect.h"
 #include "simulator.h"
+#include "dialogdata.h"
+#include "dialogsend.h"
+#include "dialogaddtopic.h"
 #include <QDebug>
 #include <QtMqtt/QtMqtt>
 #include <QMessageBox>
+#include <QPixmap>
+#include <Qt>
+#include <QMetaType>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -14,6 +20,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(ui->actionConnect, SIGNAL(triggered()), this, SLOT(onDialogConnect()));
     connect(ui->actionSimulator, SIGNAL(triggered()), this, SLOT(onSimulatorConnect()));
+
 
 
 
@@ -133,16 +140,117 @@ void MainWindow::onMessageReceived(const QByteArray &message, const QMqttTopicNa
 
         temp = new QTreeWidgetItem(root);
         temp->setText(0, topic_current);
-        temp->setText(1, message);
+
+        QPixmap pixmap;
+        if(pixmap.loadFromData(message)) {
+            temp->setText(1, "Image");
+            temp->setTextColor(1, QColor(0, 0, 255));
+        } else {
+            temp->setText(1, message);
+        }
+
+        temp->setData(1, Qt::UserRole, message);
+
+
+
 
     } else {
         child->setText(0, topic_current);
-        child->setText(1, message);
+
+        QPixmap pixmap;
+        if(pixmap.loadFromData(message)) {
+            child->setText(1, "Image");
+            child->setTextColor(1, QColor(0, 0, 255));
+        } else {
+            child->setText(1, message);
+        }
+
+        child->setData(1, Qt::UserRole, message);
     }
 
 
 
 
 }
+
+
+
+
+void MainWindow::on_tree_customContextMenuRequested(const QPoint &pos)
+{
+    QMenu menu(this);
+    menu.addAction(ui->actionShow_Data);
+    menu.addAction(ui->actionPublish);
+    menu.addAction(ui->actionAdd_Topic);
+
+    ui->actionShow_Data->setData(QVariant(pos));
+
+
+    menu.exec( ui->tree->mapToGlobal(pos) );
+}
+
+
+
+void MainWindow::on_actionShow_Data_triggered()
+{
+    QTreeWidgetItem *clickedItem = ui->tree->itemAt(ui->actionShow_Data->data().toPoint());
+
+    DialogData *window = new DialogData(clickedItem->data(1, Qt::UserRole).value<QByteArray>());
+    window->show();
+
+}
+
+
+void MainWindow::on_actionPublish_triggered()
+{
+    QTreeWidgetItem *clickedItem = ui->tree->itemAt(ui->actionShow_Data->data().toPoint());
+
+    QString topic = clickedItem->text(0);
+    clickedItem = clickedItem->parent();
+
+    while(clickedItem) {
+        topic.prepend("/");
+        topic.prepend(clickedItem->text(0));
+        clickedItem = clickedItem->parent();
+    }
+
+
+
+    DialogSend *window = new DialogSend(topic, client);
+    window->show();
+
+}
+
+
+void MainWindow::on_actionAdd_Topic_triggered()
+{
+    QTreeWidgetItem *clickedItem = ui->tree->itemAt(ui->actionShow_Data->data().toPoint());
+
+    QTreeWidgetItem *tempItem = clickedItem;
+    QString topic = tempItem->text(0);
+    tempItem = tempItem->parent();
+
+    while(tempItem) {
+        topic.prepend("/");
+        topic.prepend(tempItem->text(0));
+        tempItem = tempItem->parent();
+    }
+
+
+    DialogAddTopic *window = new DialogAddTopic(topic, &(this->subscriptions), this->client, clickedItem);
+    window->show();
+
+
+}
+
+
+
+
+
+
+
+
+
+
 
 

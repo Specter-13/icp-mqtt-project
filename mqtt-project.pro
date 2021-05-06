@@ -17,18 +17,27 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    dialogaddtopic.cpp \
     dialogconnect.cpp \
+    dialogdata.cpp \
+    dialogsend.cpp \
     main.cpp \
     mainwindow.cpp \
     simulator.cpp
 
 HEADERS += \
+    dialogaddtopic.h \
     dialogconnect.h \
+    dialogdata.h \
+    dialogsend.h \
     mainwindow.h \
     simulator.h
 
 FORMS += \
+    dialogaddtopic.ui \
     dialogconnect.ui \
+    dialogdata.ui \
+    dialogsend.ui \
     mainwindow.ui \
     simulator.ui
 

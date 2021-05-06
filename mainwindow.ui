@@ -17,6 +17,9 @@
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <widget class="QTreeWidget" name="tree">
+      <property name="contextMenuPolicy">
+       <enum>Qt::CustomContextMenu</enum>
+      </property>
       <column>
        <property name="text">
         <string>Topic</string>
@@ -64,6 +67,21 @@
   <action name="actionSimulator">
    <property name="text">
     <string>Open..</string>
+   </property>
+  </action>
+  <action name="actionShow_Data">
+   <property name="text">
+    <string>Show Data</string>
+   </property>
+  </action>
+  <action name="actionPublish">
+   <property name="text">
+    <string>Publish..</string>
+   </property>
+  </action>
+  <action name="actionAdd_Topic">
+   <property name="text">
+    <string>Add Topic</string>
    </property>
   </action>
  </widget>

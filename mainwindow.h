@@ -31,6 +31,14 @@ private slots:
 
     void onMessageReceived(const QByteArray &message, const QMqttTopicName &topic);
 
+    void on_tree_customContextMenuRequested(const QPoint &pos);
+
+    void on_actionShow_Data_triggered();
+
+    void on_actionPublish_triggered();
+
+    void on_actionAdd_Topic_triggered();
+
 private:
     Ui::MainWindow *ui;
 };
