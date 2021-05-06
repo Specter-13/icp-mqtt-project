@@ -20,6 +20,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(ui->actionConnect, SIGNAL(triggered()), this, SLOT(onDialogConnect()));
     connect(ui->actionSimulator, SIGNAL(triggered()), this, SLOT(onSimulatorConnect()));
+    connect(ui->actionSnapshot, SIGNAL(triggered()), this, SLOT(onActionSnapshot()));
+
 
 
 
@@ -240,6 +242,11 @@ void MainWindow::on_actionAdd_Topic_triggered()
     DialogAddTopic *window = new DialogAddTopic(topic, &(this->subscriptions), this->client, clickedItem);
     window->show();
 
+
+}
+
+void MainWindow::onActionSnapshot()
+{
 
 }
 

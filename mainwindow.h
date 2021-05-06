@@ -39,6 +39,8 @@ private slots:
 
     void on_actionAdd_Topic_triggered();
 
+    void onActionSnapshot();
+
 private:
     Ui::MainWindow *ui;
 };
