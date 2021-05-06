@@ -24,6 +24,7 @@ public:
 private slots:
     void onDialogConnect();
     void onSimulatorConnect();
+    void onDashboardSelected();
 
     void onConnect(QString addr, int port, int max, QString topics);
 

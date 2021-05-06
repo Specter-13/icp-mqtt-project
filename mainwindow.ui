@@ -61,9 +61,16 @@
     </property>
     <addaction name="actionSnapshot"/>
    </widget>
+   <widget class="QMenu" name="menuDashboard">
+    <property name="title">
+     <string>Dashboard</string>
+    </property>
+    <addaction name="actionOpen_dashboard"/>
+   </widget>
    <addaction name="menuServer"/>
    <addaction name="menuSimulator"/>
    <addaction name="menuSnapshot"/>
+   <addaction name="menuDashboard"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionConnect">
@@ -94,6 +101,11 @@
   <action name="actionSnapshot">
    <property name="text">
     <string>Create..</string>
+   </property>
+  </action>
+  <action name="actionOpen_dashboard">
+   <property name="text">
+    <string>Open dashboard</string>
    </property>
   </action>
  </widget>

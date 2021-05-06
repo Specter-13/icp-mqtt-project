@@ -5,6 +5,7 @@
 #include "dialogdata.h"
 #include "dialogsend.h"
 #include "dialogaddtopic.h"
+#include "dashboard.h"
 #include <QDebug>
 #include <QtMqtt/QtMqtt>
 #include <QMessageBox>
@@ -21,10 +22,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->actionConnect, SIGNAL(triggered()), this, SLOT(onDialogConnect()));
     connect(ui->actionSimulator, SIGNAL(triggered()), this, SLOT(onSimulatorConnect()));
     connect(ui->actionSnapshot, SIGNAL(triggered()), this, SLOT(onActionSnapshot()));
-
-
-
-
+    connect(ui->actionOpen_dashboard, SIGNAL(triggered()), this, SLOT(onDashboardSelected()));
 
 }
 
@@ -49,6 +47,14 @@ void MainWindow::onSimulatorConnect()
 {
     Simulator *simulatorW = new Simulator(client);
     simulatorW->show();
+}
+
+void MainWindow::onDashboardSelected()
+{
+
+    Dashboard *dashboardInstance = new Dashboard;
+    connect(client, SIGNAL(messageReceived(const QByteArray &, const QMqttTopicName &)), dashboardInstance, SLOT(onMessageReceived(const QByteArray &, const QMqttTopicName &)));
+    dashboardInstance->show();
 }
 
 void MainWindow::onConnect(QString addr, int port, int max, QString topics)
