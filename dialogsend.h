@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <QtMqtt/QtMqtt>
+#include <QTreeWidgetItem>
 
 namespace Ui {
 class DialogSend;
@@ -13,7 +14,7 @@ class DialogSend : public QDialog
     Q_OBJECT
 
 public:
-    explicit DialogSend(QString topic, QMqttClient *client, QWidget *parent = nullptr);
+    explicit DialogSend( QString topic, QMqttClient *client, QWidget *parent = nullptr);
     ~DialogSend();
 
 private:

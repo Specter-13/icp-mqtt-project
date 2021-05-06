@@ -20,6 +20,7 @@ public:
     QList<QMqttSubscription*> subscriptions;
     int max;
     QString topics;
+    QMap<QString, QByteArray> messages;
 
 private slots:
     void onDialogConnect();

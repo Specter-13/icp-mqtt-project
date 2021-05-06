@@ -12,6 +12,7 @@
 #include <QPixmap>
 #include <Qt>
 #include <QMetaType>
+#include <QFileDialog>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -91,12 +92,15 @@ void MainWindow::onMessageReceived(const QByteArray &message, const QMqttTopicNa
     QTreeWidgetItem *temp;
 
 
-    QString::const_iterator i = topic_full.begin();
 
-    //preskocim prvni pismeno, pokud je to lomitko
-    if(*i == '/') {
-        i++;
+    //smazu prvni pismeno, pokud je to lomitko
+    if(topic_full[0] == "/") {
+        topic_full.remove(0, 1);
     }
+
+    messages.insert(topic_full, message);
+
+    QString::const_iterator i = topic_full.begin();
 
     for (i; i != topic_full.end(); i++) {
         QChar c = *i;
@@ -253,6 +257,41 @@ void MainWindow::on_actionAdd_Topic_triggered()
 
 void MainWindow::onActionSnapshot()
 {
+    QString basedir = "";
+    basedir = QFileDialog::getExistingDirectory(this, tr("Open Directory"), "/home", QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
+
+    if(basedir == "") {
+        return;
+    }
+
+    QString fullpath;
+    QDir dir;
+
+    QMap<QString, QByteArray>::iterator i;
+
+    for(i = messages.begin(); i != messages.end(); i++) {
+        fullpath = basedir;
+        fullpath.append("/");
+        fullpath.append(i.key());
+
+        dir.mkpath(fullpath);
+
+        QPixmap pixmap;
+        if(pixmap.loadFromData(i.value())) {
+
+            fullpath.append("/payload.jpg");
+            QFile file(fullpath);
+            file.open(QIODevice::WriteOnly);
+            file.write(i.value());
+
+        } else {
+            fullpath.append("/payload.txt");
+            QFile file(fullpath);
+            file.open(QIODevice::WriteOnly);
+            file.write(i.value());
+        }
+
+    }
 
 }
 

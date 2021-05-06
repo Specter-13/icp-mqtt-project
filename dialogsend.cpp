@@ -16,6 +16,8 @@ DialogSend::DialogSend(QString topic, QMqttClient *client, QWidget *parent) :
 
 }
 
+
+
 DialogSend::~DialogSend()
 {
     delete ui;
