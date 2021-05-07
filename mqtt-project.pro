@@ -18,6 +18,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     dashboard.cpp \
+    dashboardcard.cpp \
+    dialogadditem.cpp \
     dialogaddtopic.cpp \
     dialogconnect.cpp \
     dialogdata.cpp \
@@ -28,6 +30,8 @@ SOURCES += \
 
 HEADERS += \
     dashboard.h \
+    dashboardcard.h \
+    dialogadditem.h \
     dialogaddtopic.h \
     dialogconnect.h \
     dialogdata.h \
@@ -37,6 +41,8 @@ HEADERS += \
 
 FORMS += \
     dashboard.ui \
+    dashboardcard.ui \
+    dialogadditem.ui \
     dialogaddtopic.ui \
     dialogconnect.ui \
     dialogdata.ui \
