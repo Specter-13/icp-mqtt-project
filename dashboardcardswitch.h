@@ -23,6 +23,8 @@ private slots:
      void onTurnOnClicked() ;
      void onTurnOffClicked() ;
      void onRemoveClicked() ;
+signals:
+        void RemovedItemSignal();
 private:
     Dashboard *DashboardInstance;
 private:

@@ -17,6 +17,7 @@ DashboardCardSwitch::DashboardCardSwitch(QWidget *parent,
     connect(ui->removeButton, SIGNAL(clicked()),this,SLOT(onRemoveClicked()));
     connect(ui->turnOnButton, SIGNAL(clicked()),this,SLOT(onTurnOnClicked()));
     connect(ui->turnOffButton, SIGNAL(clicked()),this,SLOT(onTurnOffClicked()));
+    connect(this, SIGNAL(RemovedItemSignal()), DashboardInstance, SLOT(onRemoveItemSignal()));
 }
 
 DashboardCardSwitch::~DashboardCardSwitch()
@@ -45,5 +46,6 @@ void DashboardCardSwitch::onTurnOffClicked()
 
 void DashboardCardSwitch::onRemoveClicked()
 {
+     emit RemovedItemSignal();
     delete this;
 }

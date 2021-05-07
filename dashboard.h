@@ -21,10 +21,19 @@ signals:
 public slots:
     void onMessageReceived(const QByteArray &message, const QMqttTopicName &topic);
     void onAddItemClicked();
+    void onSaveConfig();
+    void onAddedItemSignal();
+    void onRemoveItemSignal();
+private:
+    void LoadDashboardConfig();
+private:
+    QString getCardType(QString cardName );
 private:
     QMqttClient *Client;
 private:
     Ui::Dashboard *ui;
+private:
+    int DashboardItemsCount;
 };
 
 #endif // DASHBOARD_H

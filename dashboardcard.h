@@ -21,7 +21,8 @@ public:
 private slots:
     void onMessageReceivedUpdateData(QString topic, QByteArray message) ;
     void onRemoveClicked();
-
+signals:
+        void RemovedItemSignal();
 private:
     Ui::DashboardCard *ui;
 private:

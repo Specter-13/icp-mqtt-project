@@ -16,6 +16,7 @@ DashboardCardSetter::DashboardCardSetter(QWidget *parent,
     connect(DashboardInstance, SIGNAL(topicDataSignal(QString,QByteArray)), this, SLOT(onMessageReceivedUpdateData(QString, QByteArray)));
     connect(ui->removeButton, SIGNAL(clicked()),this,SLOT(onRemoveClicked()));
     connect(ui->sendButton, SIGNAL(clicked()),this, SLOT(onSendClicked()));
+    connect(this, SIGNAL(RemovedItemSignal()), DashboardInstance, SLOT(onRemoveItemSignal()));
 }
 
 void DashboardCardSetter::onMessageReceivedUpdateData(QString topic, QByteArray message)
@@ -42,5 +43,6 @@ DashboardCardSetter::~DashboardCardSetter()
 
 void DashboardCardSetter::onRemoveClicked()
 {
+    emit RemovedItemSignal();
     delete this;
 }

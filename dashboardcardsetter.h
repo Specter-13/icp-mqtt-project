@@ -23,6 +23,8 @@ private slots:
      void onMessageReceivedUpdateData(QString topic, QByteArray message) ;
      void onSendClicked() ;
      void onRemoveClicked() ;
+signals:
+        void RemovedItemSignal();
 private:
     Dashboard *DashboardInstance;
 private:

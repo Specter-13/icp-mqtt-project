@@ -9,16 +9,18 @@ DashboardCard::DashboardCard(QWidget *parent,
     ui(new Ui::DashboardCard)
 {
     ui->setupUi(this);
-    ui->label->setText(name);
+    ui->topicName->setText(name);
     TopicName = name;
     Data = data;
     DashboardInstance = dashboard;
 
      connect(DashboardInstance, SIGNAL(topicDataSignal(QString,QByteArray)), this, SLOT(onMessageReceivedUpdateData(QString, QByteArray)));
+     connect(this, SIGNAL(RemovedItemSignal()), DashboardInstance, SLOT(onRemoveItemSignal()));
      connect(ui->removeButton, SIGNAL(clicked()),this,SLOT(onRemoveClicked()));
 
 
 }
+
 
 DashboardCard::~DashboardCard()
 {
@@ -42,5 +44,6 @@ void DashboardCard::onMessageReceivedUpdateData(QString topic, QByteArray messag
 
 void DashboardCard::onRemoveClicked()
 {
+    emit RemovedItemSignal();
     delete this;
 }

@@ -140,7 +140,6 @@ void Simulator::onConfig()
 
     QJsonObject jsondata = json.object();
 
-
     period = jsondata.value("period").toInt();
     tempSetpoint = jsondata.value("tempSetpoint").toInt();
     humCount = jsondata.value("humCount").toInt();

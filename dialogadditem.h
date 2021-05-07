@@ -24,7 +24,8 @@ public:
 
 private:
     Ui::DialogAddItem *ui;
-
+signals:
+    void AddedItemSignal();
 private slots:
     void onOkButton();
 
