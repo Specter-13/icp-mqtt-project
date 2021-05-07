@@ -20,6 +20,7 @@ public:
     ~DashboardCard();
 private slots:
     void onMessageReceivedUpdateData(QString message, QString topic);
+    void onRemoveButtonClicked();
 
 private:
     Ui::DashboardCard *ui;
