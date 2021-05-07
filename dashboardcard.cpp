@@ -12,10 +12,11 @@ DashboardCard::DashboardCard(QWidget *parent,
     ui->label->setText(name);
     TopicName = name;
     Data = data;
-    DashBoardInstance = dashboard;
+    DashboardInstance = dashboard;
 
-     connect(DashBoardInstance, SIGNAL(topicDataSignal(QString,QString)), this, SLOT(onMessageReceivedUpdateData(QString, QString)));
-     connect(ui->removeButton, SIGNAL(clicked()),this,SLOT(onRemoveButtonClicked()));
+     connect(DashboardInstance, SIGNAL(topicDataSignal(QString,QByteArray)), this, SLOT(onMessageReceivedUpdateData(QString, QByteArray)));
+     connect(ui->removeButton, SIGNAL(clicked()),this,SLOT(onRemoveClicked()));
+
 
 }
 
@@ -24,15 +25,22 @@ DashboardCard::~DashboardCard()
     delete ui;
 }
 
-void DashboardCard::onMessageReceivedUpdateData(QString topic, QString message)
+void DashboardCard::onMessageReceivedUpdateData(QString topic, QByteArray message)
 {
+    QPixmap pixmap;
+
     if(TopicName == topic)
     {
-        ui->label_2->setText(QString(message));
+        if(pixmap.loadFromData(message)) {
+            ui->dataLabel->setPixmap(pixmap);
+        } else {
+            ui->dataLabel->setText(QString(message));
+        }
+
     }
 }
 
-void DashboardCard::onRemoveButtonClicked()
+void DashboardCard::onRemoveClicked()
 {
     delete this;
 }

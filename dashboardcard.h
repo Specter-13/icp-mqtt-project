@@ -19,8 +19,8 @@ public:
                            Dashboard *dashboard = nullptr);
     ~DashboardCard();
 private slots:
-    void onMessageReceivedUpdateData(QString message, QString topic);
-    void onRemoveButtonClicked();
+    void onMessageReceivedUpdateData(QString topic, QByteArray message) ;
+    void onRemoveClicked();
 
 private:
     Ui::DashboardCard *ui;
@@ -29,7 +29,7 @@ private:
 private:
     QByteArray *Data;
 private:
-    Dashboard *DashBoardInstance;
+    Dashboard *DashboardInstance;
 };
 
 #endif // DASHBOARDCARD_H

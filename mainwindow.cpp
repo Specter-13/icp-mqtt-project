@@ -53,7 +53,7 @@ void MainWindow::onSimulatorConnect()
 void MainWindow::onDashboardSelected()
 {
 
-    Dashboard *dashboardInstance = new Dashboard;
+    Dashboard *dashboardInstance = new Dashboard(nullptr, client);
     connect(client, SIGNAL(messageReceived(const QByteArray &, const QMqttTopicName &)), dashboardInstance, SLOT(onMessageReceived(const QByteArray &, const QMqttTopicName &)));
     dashboardInstance->show();
 }

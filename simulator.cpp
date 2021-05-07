@@ -20,7 +20,7 @@ Simulator::Simulator(QMqttClient *client, QWidget *parent) :
     connect(ui->configButton, SIGNAL(clicked()), this, SLOT(onConfig()));
     connect(timer, SIGNAL(timeout()), this, SLOT(onSend()));
 
-    QFile file("/home/vojta/Downloads/kekw.jpg");
+    QFile file("/home/osboxes/Downloads/kekw.jpg");
     if(!file.open(QIODevice::ReadOnly)) {
         return;
     }

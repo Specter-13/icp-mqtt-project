@@ -4,6 +4,8 @@
 #include <QDialog>
 #include <QVBoxLayout>
 #include <dashboard.h>
+#include <QtMqtt/QtMqtt>
+
 namespace Ui {
 class DialogAddItem;
 }
@@ -15,7 +17,8 @@ class DialogAddItem : public QDialog
 public:
     explicit DialogAddItem(QWidget *parent = nullptr,
                            QVBoxLayout *layout = nullptr,
-                           Dashboard *dashboard = nullptr);
+                           Dashboard *dashboard = nullptr,
+                           QMqttClient *client = nullptr);
     ~DialogAddItem();
 
 
@@ -27,6 +30,8 @@ private slots:
 
 private:
     QVBoxLayout *Layout;
+private:
+    QMqttClient *Client;
 private:
     Dashboard *DashboardInstance;
 };
