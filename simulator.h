@@ -21,12 +21,21 @@ private:
 
     QMqttClient *client;
     QTimer *timer = new QTimer(this);
+    int period = 1000;
+    int tempSetpoint = 20;
+    int humCount = 0;
+    int scanCount = 0;
+    int relayCount = 0;
+    int camCount = 0;
+    QByteArray imgdata;
 
 private slots:
 
     void onStart();
     void onStop();
     void onSend();
+    void onConfig();
+    void onMessage(const QByteArray &message, const QMqttTopicName &topic);
 
 };
 
