@@ -17,17 +17,44 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    dashboard.cpp \
+    dashboardcard.cpp \
+    dashboardcardsetter.cpp \
+    dashboardcardswitch.cpp \
+    dialogadditem.cpp \
+    dialogaddtopic.cpp \
     dialogconnect.cpp \
+    dialogdata.cpp \
+    dialogsend.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    simulator.cpp
 
 HEADERS += \
+    dashboard.h \
+    dashboardcard.h \
+    dashboardcardsetter.h \
+    dashboardcardswitch.h \
+    dialogadditem.h \
+    dialogaddtopic.h \
     dialogconnect.h \
-    mainwindow.h
+    dialogdata.h \
+    dialogsend.h \
+    mainwindow.h \
+    simulator.h
 
 FORMS += \
+    dashboard.ui \
+    dashboardcard.ui \
+    dashboardcardsetter.ui \
+    dashboardcardswitch.ui \
+    dialogadditem.ui \
+    dialogaddtopic.ui \
     dialogconnect.ui \
-    mainwindow.ui
+    dialogdata.ui \
+    dialogsend.ui \
+    mainwindow.ui \
+    simulator.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

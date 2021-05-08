@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Connect..</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -25,7 +25,11 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="addr"/>
+       <widget class="QLineEdit" name="addr">
+        <property name="text">
+         <string>localhost</string>
+        </property>
+       </widget>
       </item>
      </layout>
     </widget>
@@ -41,7 +45,11 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="port"/>
+       <widget class="QLineEdit" name="port">
+        <property name="text">
+         <string>1883</string>
+        </property>
+       </widget>
       </item>
      </layout>
     </widget>
@@ -57,7 +65,11 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="maxMess"/>
+       <widget class="QLineEdit" name="maxMess">
+        <property name="text">
+         <string>4</string>
+        </property>
+       </widget>
       </item>
      </layout>
     </widget>
