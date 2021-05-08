@@ -1,3 +1,9 @@
+/**
+* @file mainwindow.cpp
+*
+* @brief Třída pro hlavní okno aplikace.
+* @author Vojtěch Jurka (xjurka08), Dávid Špavor (xspavo01)
+*/
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "dialogconnect.h"

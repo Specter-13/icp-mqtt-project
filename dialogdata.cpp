@@ -1,3 +1,9 @@
+/**
+* @file dialogdata.cpp
+*
+* @brief Třída pro dialog na zobrazení dat zprávy.
+* @author Vojtěch Jurka (xjurka08), Dávid Špavor (xspavo01)
+*/
 #include "dialogdata.h"
 #include "ui_dialogdata.h"
 #include <QLabel>

@@ -1,3 +1,9 @@
+/**
+* @file dialogaddtopic.cpp
+*
+* @brief Třída pro dialog na přidávání tématu do hierarchie stromu.
+* @author Vojtěch Jurka (xjurka08), Dávid Špavor (xspavo01)
+*/
 #include "dialogaddtopic.h"
 #include "ui_dialogaddtopic.h"
 #include <QMessageBox>

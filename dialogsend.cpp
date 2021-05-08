@@ -1,3 +1,9 @@
+/**
+* @file dialogsend.cpp
+*
+* @brief Třída pro dialog na odeslání zprávy.
+* @author Vojtěch Jurka (xjurka08), Dávid Špavor (xspavo01)
+*/
 #include "dialogsend.h"
 #include "ui_dialogsend.h"
 #include <QFileDialog>

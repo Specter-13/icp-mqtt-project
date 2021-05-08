@@ -1,3 +1,9 @@
+/**
+* @file dialogdata.h
+*
+* @brief Třída pro dialog na zobrazení dat zprávy.
+* @author Vojtěch Jurka (xjurka08), Dávid Špavor (xspavo01)
+*/
 #ifndef DIALOGDATA_H
 #define DIALOGDATA_H
 
@@ -7,11 +13,24 @@ namespace Ui {
 class DialogData;
 }
 
+/**
+* @class DialogData
+*
+* @brief Třída pro dialog na zobrazení dat zprávy.
+*/
 class DialogData : public QDialog
 {
     Q_OBJECT
 
 public:
+    /**
+     * @brief Konstruktor třídy.
+     *
+     * @param data binární podoba dat
+     * @param parent rodičovský objekt
+     *
+     *
+     */
     explicit DialogData(QByteArray data, QWidget *parent = nullptr);
     ~DialogData();
 
