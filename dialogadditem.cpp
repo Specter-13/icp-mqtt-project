@@ -1,3 +1,9 @@
+/**
+* @file dialogadditem.cpp
+*
+* @brief Dialog pre pridanie novej karty do Dashboardu
+* @author Vojtěch Jurka (xjurka08), Dávid Špavor (xspavo00)
+*/
 #include "dialogadditem.h"
 #include "ui_dialogadditem.h"
 #include "dashboardcard.h"
@@ -33,7 +39,7 @@ void DialogAddItem::onOkButton()
     {
 
         Layout->addStretch();
-        DashboardCard * card = new DashboardCard(nullptr, ui->lineEdit->text(), nullptr, DashboardInstance);
+        DashboardCard * card = new DashboardCard(nullptr, ui->lineEdit->text(), DashboardInstance);
         Layout->insertWidget(0,card);
 
     }

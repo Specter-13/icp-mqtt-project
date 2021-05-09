@@ -2,7 +2,7 @@
 * @file dialogdata.h
 *
 * @brief Třída pro dialog na zobrazení dat zprávy.
-* @author Vojtěch Jurka (xjurka08), Dávid Špavor (xspavo01)
+* @author Vojtěch Jurka (xjurka08), Dávid Špavor (xspavo00)
 */
 #ifndef DIALOGDATA_H
 #define DIALOGDATA_H

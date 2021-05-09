@@ -1,3 +1,9 @@
+/**
+* @file dashboardcardswitch.cpp
+*
+* @brief Trieda obsahujúca Dashboard kartu typu spínač.
+* @author Vojtěch Jurka (xjurka08), Dávid Špavor (xspavo00)
+*/
 #include "dashboardcardswitch.h"
 #include "ui_dashboardcardswitch.h"
 

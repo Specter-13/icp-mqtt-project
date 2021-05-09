@@ -2,7 +2,7 @@
 * @file mainwindow.cpp
 *
 * @brief Třída pro hlavní okno aplikace.
-* @author Vojtěch Jurka (xjurka08), Dávid Špavor (xspavo01)
+* @author Vojtěch Jurka (xjurka08), Dávid Špavor (xspavo00)
 */
 #include "mainwindow.h"
 #include "ui_mainwindow.h"

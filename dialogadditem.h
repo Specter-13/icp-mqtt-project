@@ -1,3 +1,9 @@
+/**
+* @file dialogadditem.h
+*
+* @brief Trieda pre pridanie nového itemu do Dashboardu
+* @author Vojtěch Jurka (xjurka08), Dávid Špavor (xspavo00)
+*/
 #ifndef DIALOGADDITEM_H
 #define DIALOGADDITEM_H
 
@@ -9,12 +15,26 @@
 namespace Ui {
 class DialogAddItem;
 }
-
+/**
+* @class DialogAddItem
+*
+* @brief DialogAddItem trieda
+*/
 class DialogAddItem : public QDialog
 {
     Q_OBJECT
 
 public:
+    /**
+     * @brief Konstruktor triedy.
+     *
+     * @param rodičovský objekt
+     * @param layout objektu, do ktorého sa pridávajú karty
+     * @param ukazatel na Dashboard komponentu
+     * @param ukazatel na Mqtt klienta
+     *
+     *
+     */
     explicit DialogAddItem(QWidget *parent = nullptr,
                            QVBoxLayout *layout = nullptr,
                            Dashboard *dashboard = nullptr,
@@ -25,8 +45,14 @@ public:
 private:
     Ui::DialogAddItem *ui;
 signals:
+    /**
+     * @brief Signál vysielajúci udalosť pridania itemu do Dashboardu
+     */
     void AddedItemSignal();
 private slots:
+    /**
+     * @brief Slot zachytávajúci udalosť potrvednia vytvorenia novej karty, obsahuj́uci samotnú logiku pridania karty do Dashboardu.
+     */
     void onOkButton();
 
 private:

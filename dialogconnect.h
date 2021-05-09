@@ -2,7 +2,7 @@
 * @file dialogconnect.h
 *
 * @brief Třída pro dialog na připojení k brokerovi.
-* @author Vojtěch Jurka (xjurka08), Dávid Špavor (xspavo01)
+* @author Vojtěch Jurka (xjurka08), Dávid Špavor (xspavo00)
 */
 #ifndef DIALOGCONNECT_H
 #define DIALOGCONNECT_H

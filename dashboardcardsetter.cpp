@@ -1,3 +1,9 @@
+/**
+* @file dashboardcardsetter.cpp
+*
+* @brief Trieda obsahujúca nastavovaciu Dashboard kartu.
+* @author Vojtěch Jurka (xjurka08), Dávid Špavor (xspavo00)
+*/
 #include "dashboardcardsetter.h"
 #include "ui_dashboardcardsetter.h"
 

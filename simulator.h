@@ -2,7 +2,7 @@
 * @file simulator.h
 *
 * @brief Třída pro okno simulátoru.
-* @author Vojtěch Jurka (xjurka08), Dávid Špavor (xspavo01)
+* @author Vojtěch Jurka (xjurka08), Dávid Špavor (xspavo00)
 */
 #ifndef SIMULATOR_H
 #define SIMULATOR_H

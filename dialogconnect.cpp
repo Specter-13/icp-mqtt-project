@@ -2,7 +2,7 @@
 * @file dialogconnect.cpp
 *
 * @brief Třída pro dialog na připojení k brokerovi.
-* @author Vojtěch Jurka (xjurka08), Dávid Špavor (xspavo01)
+* @author Vojtěch Jurka (xjurka08), Dávid Špavor (xspavo00)
 */
 #include "dialogconnect.h"
 #include "ui_dialogconnect.h"

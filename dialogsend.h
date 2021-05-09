@@ -2,7 +2,7 @@
 * @file dialogsend.h
 *
 * @brief Třída pro dialog na odeslání zprávy.
-* @author Vojtěch Jurka (xjurka08), Dávid Špavor (xspavo01)
+* @author Vojtěch Jurka (xjurka08), Dávid Špavor (xspavo00)
 */
 #ifndef DIALOGSEND_H
 #define DIALOGSEND_H

@@ -1,9 +1,14 @@
+/**
+* @file dashboardcard.cpp
+*
+* @brief Trieda obsahujúca generickú Dashboard kartu.
+* @author Vojtěch Jurka (xjurka08), Dávid Špavor (xspavo00)
+*/
 #include "dashboardcard.h"
 #include "ui_dashboardcard.h"
 
 DashboardCard::DashboardCard(QWidget *parent,
                              QString name,
-                             QByteArray *data,
                              Dashboard *dashboard) :
     QWidget(parent),
     ui(new Ui::DashboardCard)
@@ -11,7 +16,6 @@ DashboardCard::DashboardCard(QWidget *parent,
     ui->setupUi(this);
     ui->topicName->setText(name);
     TopicName = name;
-    Data = data;
     DashboardInstance = dashboard;
 
      connect(DashboardInstance, SIGNAL(topicDataSignal(QString,QByteArray)), this, SLOT(onMessageReceivedUpdateData(QString, QByteArray)));

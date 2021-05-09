@@ -2,7 +2,7 @@
 * @file mainwindow.h
 *
 * @brief Třída pro hlavní okno aplikace.
-* @author Vojtěch Jurka (xjurka08), Dávid Špavor (xspavo01)
+* @author Vojtěch Jurka (xjurka08), Dávid Špavor (xspavo00)
 */
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H

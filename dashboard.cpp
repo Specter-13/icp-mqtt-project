@@ -1,3 +1,9 @@
+/**
+* @file dashboard.cpp
+*
+* @brief Trieda obsahujúca logiku Dashboardu.
+* @author Vojtěch Jurka (xjurka08), Dávid Špavor (xspavo00)
+*/
 #include "dashboard.h"
 #include "ui_dashboard.h"
 #include "dashboardcard.h"
@@ -121,7 +127,7 @@ void Dashboard::LoadDashboardConfig()
             if(cardType == "generic")
             {
                 ui->verticalLayout->addStretch();
-                DashboardCard * card = new DashboardCard(nullptr, topicName, nullptr, this);
+                DashboardCard * card = new DashboardCard(nullptr, topicName, this);
                 ui->verticalLayout->insertWidget(0,card);
             }
             else if(cardType == "switch")

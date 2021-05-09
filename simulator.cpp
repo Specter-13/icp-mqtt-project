@@ -2,7 +2,7 @@
 * @file simulator.cpp
 *
 * @brief Třída pro okno simulátoru.
-* @author Vojtěch Jurka (xjurka08), Dávid Špavor (xspavo01)
+* @author Vojtěch Jurka (xjurka08), Dávid Špavor (xspavo00)
 */
 #include "simulator.h"
 #include "ui_simulator.h"
