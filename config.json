@@ -1,8 +1,0 @@
-{
-   "period":2000,
-   "tempSetpoint":15,
-   "humCount":4,
-   "scanCount":3,
-   "relayCount":2,
-   "camCount":3
-}
