@@ -9,7 +9,7 @@ run:
 	cd src; \
 	./mqtt-project
 
-zip: *
+pack: *
 	zip -r 1-xjurka08-xspavo00.zip *
 
 clean: 
